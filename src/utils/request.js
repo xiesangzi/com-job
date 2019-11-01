@@ -1,5 +1,5 @@
 import {
-	getToken
+	getToken, removeToken
 } from '@/utils/auth'
 
 import {
@@ -35,7 +35,9 @@ service.interceptors.response.use(
 		return res;
 	},
 	error => {
-
+		if (error.response.status == 401) {
+			removeToken();
+		}
 		Message.error(error.response.data.msg);
 		return Promise.reject(error)
 	}

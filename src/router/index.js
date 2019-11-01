@@ -74,7 +74,7 @@ export const constantRoutes = [
 		component: () => import('@/views/cooperate/cooperate'),
 		hidden: true
 	},
-	
+
 	{
 		path: '/test',
 		component: () => import('@/views/test'),
